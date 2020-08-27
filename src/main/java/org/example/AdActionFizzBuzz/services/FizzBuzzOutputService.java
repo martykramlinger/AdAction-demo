@@ -7,6 +7,7 @@ public class FizzBuzzOutputService {
     private static final String FIZZ_BUZZ = "fizzbuzz";
     private static final String FIZZ = "fizz";
     private static final String BUZZ = "buzz";
+    private static final String LUCKY = "lucky";
 
     //the range will always start at 1, going up to and stopping at topOfRange
     public static void printOutput(Integer topOfRange) {
@@ -16,6 +17,11 @@ public class FizzBuzzOutputService {
     }
 
     public static String getOutPutString(Integer number) {
+
+        if (numberHasThree(number)) {
+            return LUCKY;
+        }
+
         if (number % 15 == 0) {
             return FIZZ_BUZZ;
         }
@@ -26,5 +32,10 @@ public class FizzBuzzOutputService {
             return FIZZ;
         }
         return number.toString();
+    }
+
+    protected static boolean numberHasThree(Integer number) {
+        String numberAsString = number.toString();
+        return numberAsString.contains("3");
     }
 }

@@ -2,7 +2,6 @@ package org.example.AdActionFizzBuzz.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,7 +27,7 @@ class FizzBuzzOutputServiceTest {
     void getOutPutStringOf30() {
         String result = classToTest.getOutPutString(30);
 
-        assertEquals("fizzbuzz", result);
+        assertEquals("lucky", result);
     }
 
     @Test
@@ -49,7 +48,7 @@ class FizzBuzzOutputServiceTest {
     void getOutPutStringOf3() {
         String result = classToTest.getOutPutString(3);
 
-        assertEquals("fizz", result);
+        assertEquals("lucky", result);
     }
 
     @Test
@@ -80,6 +79,26 @@ class FizzBuzzOutputServiceTest {
         outPutServiceSpy.printOutput(20);
 
         verify(outPutServiceSpy, times(20)).getOutPutString(anyInt());
+    }
 
+    @Test
+    void numberHasThree_input_3() {
+        boolean result = FizzBuzzOutputService.numberHasThree(3);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void numberHasThree_input_13() {
+        boolean result = FizzBuzzOutputService.numberHasThree(13);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void numberHasThree_input_5() {
+        boolean result = FizzBuzzOutputService.numberHasThree(5);
+
+        assertFalse(result);
     }
 }
