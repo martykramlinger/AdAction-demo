@@ -1,5 +1,7 @@
 package org.example.AdActionFizzBuzz.services;
 
+import org.example.AdActionFizzBuzz.StringUtil;
+
 //going with static methods since the only dependency injection I've done in Java is spring,
 //which is not supported in Intellij Community
 public class FizzBuzzOutputService {
@@ -18,7 +20,7 @@ public class FizzBuzzOutputService {
 
     public static String getOutPutString(Integer number) {
 
-        if (numberHasThree(number)) {
+        if (StringUtil.integerHas3(number)) {
             return LUCKY;
         }
 
@@ -32,10 +34,5 @@ public class FizzBuzzOutputService {
             return FIZZ;
         }
         return number.toString();
-    }
-
-    protected static boolean numberHasThree(Integer number) {
-        String numberAsString = number.toString();
-        return numberAsString.contains("3");
     }
 }

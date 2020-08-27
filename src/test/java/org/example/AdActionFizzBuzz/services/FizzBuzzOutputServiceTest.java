@@ -81,24 +81,5 @@ class FizzBuzzOutputServiceTest {
         verify(outPutServiceSpy, times(20)).getOutPutString(anyInt());
     }
 
-    @Test
-    void numberHasThree_input_3() {
-        boolean result = FizzBuzzOutputService.numberHasThree(3);
 
-        assertTrue(result);
-    }
-
-    @Test
-    void numberHasThree_input_13() {
-        boolean result = FizzBuzzOutputService.numberHasThree(13);
-
-        assertTrue(result);
-    }
-
-    @Test
-    void numberHasThree_input_5() {
-        boolean result = FizzBuzzOutputService.numberHasThree(5);
-
-        assertFalse(result);
-    }
 }
