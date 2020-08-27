@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import static org.example.AdActionFizzBuzz.services.FizzBuzzOutputService.getIndividualOutputString;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -81,5 +82,18 @@ class FizzBuzzOutputServiceTest {
         verify(outPutServiceSpy, times(20)).getOutPutString(anyInt());
     }
 
+    @Test
+    void getIndividualOutputString_30_integer() {
+        String result = getIndividualOutputString("Integer", 30);
+
+        assertEquals("Integer: 30", result);
+    }
+
+    @Test
+    void getIndividualOutputString_3_lucky() {
+        String result = getIndividualOutputString("Lucky", 3);
+
+        assertEquals("Lucky: 3", result);
+    }
 
 }
